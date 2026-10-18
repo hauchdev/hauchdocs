@@ -1,0 +1,47 @@
+---
+title: "Permisos de hLobby"
+description: "Referencia de permisos de hLobby."
+---
+
+hLobby usa un modelo de permisos simple. Los comodines funcionan en plugins de permisos como [LuckPerms](https://luckperms.net/).
+
+## Lista de permisos
+
+| Permiso | Por defecto | Descripción |
+| --- | --- | --- |
+| `lobby.use` | true | Usar `/lobby`. |
+| `lobby.admin.create` | op | Añadir servidores a la lista de lobbies. |
+| `lobby.admin.remove` | op | Eliminar servidores de la lista de lobbies. |
+| `lobby.admin.list` | op | Listar los lobbies configurados. |
+| `lobby.admin.transport` | op | Mover jugadores entre lobbies. |
+| `lobby.admin.mode` | op | Cambiar el modo de teletransporte. |
+| `lobby.admin.tp` | op | Teletransportar a otro jugador a un lobby. |
+| `lobby.admin.server` | op | Unirse a un lobby específico. |
+| `lobby.admin.reload` | op | Recargar configuración y mensajes. |
+| `lobby.admin.main` | op | Usar los comandos admin de `/hlobby`. |
+| `lobby.admin.*` | op | Todos los permisos administrativos. |
+| `lobby.bypass.cooldown` | op | Ignorar el enfriamiento de `/lobby`. |
+| `lobby.bypass.countdown` | op | Saltarse la cuenta atrás de teletransporte. |
+| `lobby.bypass.blocked` | op | Usar `/lobby` en servidores bloqueados. |
+| `lobby.update.notify` | op | Recibir notificación cuando haya una actualización. |
+| `lobby.*` | op | Todos los permisos. |
+
+## Ejemplos con LuckPerms
+
+Da todos los permisos de lobby a un grupo:
+
+```bash
+/lp group admin permission set lobby.* true
+```
+
+Permite solo `/lobby` a los jugadores por defecto:
+
+```bash
+/lp group default permission set lobby.use true
+```
+
+Permite al staff saltarse el enfriamiento:
+
+```bash
+/lp group mod permission set lobby.bypass.cooldown true
+```

@@ -1,0 +1,59 @@
+---
+title: "Comandos de hLobby"
+description: "Referencia completa de comandos de hLobby."
+---
+
+Todos los nombres y alias de comandos son configurables en `config.yml`. La tabla siguiente muestra los valores por defecto.
+
+## Comandos de jugador
+
+| Comando | Alias | Descripción | Permiso |
+| --- | --- | --- | --- |
+| `/lobby` | `hub`, `leave` | Te envía al mejor lobby. | `lobby.use` |
+
+## Comandos de administrador
+
+| Comando | Alias | Descripción | Permiso |
+| --- | --- | --- | --- |
+| `/lobbycreate <servidor>` | `create` | Registra un servidor como lobby. | `lobby.admin.create` |
+| `/lobbyremove <servidor>` | `remove` | Elimina un servidor de la lista de lobbies. | `lobby.admin.remove` |
+| `/lobbylist` | `list` | Lista los lobbies configurados y sus jugadores. | `lobby.admin.list` |
+| `/lobbytransport <desde> <hasta>` | `transport` | Mueve todos los jugadores de un lobby a otro. | `lobby.admin.transport` |
+| `/lobbymode <modo>` | `mode` | Cambia la estrategia de teletransporte. | `lobby.admin.mode` |
+| `/lobbytp <jugador>` | `tp` | Teletransporta a otro jugador a un lobby. | `lobby.admin.tp` |
+| `/lobbyserver <servidor>` | `server`, `joins` | Une a un lobby específico. | `lobby.admin.server` |
+| `/lobbyreload` | `hlobbyreload` | Recarga config, mensajes y lobbies. | `lobby.admin.reload` |
+| `/hlobby reload` | — | Recarga config, mensajes y lobbies. | `lobby.admin.main` |
+| `/hlobby update` | — | Comprueba actualizaciones de GitHub manualmente. | `lobby.admin.main` |
+| `/hlobby about` | — | Muestra versión, estado de métricas y sitio web. | `lobby.admin.main` |
+| `/hlobby help` | — | Muestra el menú de ayuda de administrador. | `lobby.admin.main` |
+
+## Ejemplos
+
+Envíate al mejor lobby:
+
+```bash
+/lobby
+```
+
+Añade un lobby en tiempo de ejecución:
+
+```bash
+/lobbycreate lobby-3
+```
+
+Cambia el modo de teletransporte:
+
+```bash
+/lobbymode ROUND_ROBIN
+```
+
+Teletransporta a otro jugador:
+
+```bash
+/lobbytp Notch
+```
+
+## Autocompletado con tabulador
+
+La mayoría de comandos administrativos soportan autocompletado para nombres de servidor, jugadores en línea y modos de teletransporte válidos.
