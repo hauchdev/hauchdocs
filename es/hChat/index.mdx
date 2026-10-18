@@ -1,6 +1,7 @@
 ---
 title: "Visión general de hChat"
 description: "Un sistema de chat moderno y completo para servidores Paper 1.20+."
+icon: "comments"
 ---
 
 # hChat
@@ -11,7 +12,7 @@ description: "Un sistema de chat moderno y completo para servidores Paper 1.20+.
   <Card title="Instalar hChat" icon="download" href="/es/hChat/installation">
     Descarga, instala y verifica hChat en tu servidor Paper.
   </Card>
-  <Card title="Configuración" icon="gear" href="/es/hChat/configuration">
+  <Card title="Configuración" icon="sliders" href="/es/hChat/configuration">
     Aprende todas las opciones de config.yml con ejemplos.
   </Card>
   <Card title="Comandos y permisos" icon="terminal" href="/es/hChat/commands">
@@ -24,37 +25,87 @@ description: "Un sistema de chat moderno y completo para servidores Paper 1.20+.
 
 ## Características
 
-| Característica | Descripción |
-| --- | --- |
-| Mensajes privados | Formato personalizable con tooltips y clic para responder. |
-| @Menciones | Sonido configurable, color de resaltado y notificación personal. |
-| Modo espía | Monitoriza mensajes privados con un permiso dedicado. |
-| Sistema de ignore | Lista de bloqueo persistente por jugador. |
-| Multiidioma | Localización YAML con selección de idioma por jugador. |
-| PlaceholderAPI | `%hchat_spy_enabled%`, `%hchat_ignored%`, DND, última vez visto, etc. |
-| MiniMessage + hex | Etiquetas MiniMessage, hex `&#RRGGBB` y códigos `&` clásicos. |
-| Hover y clic | Tooltips y acciones clicables en cada línea de chat. |
-| Anuncios | `/bc` manual más programador de anuncios automáticos. |
-| Moderación | Slowmode, bloqueo de chat y chat de staff (`/sc`). |
-| Cadena de filtros | Filtro de palabras, anti-mayúsculas, anti-unicode, anti-publicidad y anti-spam. |
-| Registro de chat | Logs diarios rotativos con retención configurable. |
-| Canales de chat | Por mundo, por permiso, alias y enfriamientos. |
-| Correo | Mensajes offline con `/hchat mail read\|clear\|send`. |
-| AFK | Detección automática de inactividad más `/afk [mensaje]`. |
-| Menciones masivas | `@everyone` / `@here` con enfriamiento y sonido. |
-| Ping y visto | `/ping [jugador]` y `/seen <jugador>`. |
-| Repetición de chat | `/hchat replay [jugador]` en un buffer circular. |
+<CardGroup cols={3}>
+  <Card title="Mensajes privados" icon="envelope">
+    Formato personalizable con tooltips y clic para responder.
+  </Card>
+  <Card title="@Menciones" icon="at">
+    Sonido configurable, color de resaltado y notificación personal.
+  </Card>
+  <Card title="Modo espía" icon="eye">
+    Monitoriza mensajes privados con un permiso dedicado.
+  </Card>
+  <Card title="Sistema de ignore" icon="user-slash">
+    Lista de bloqueo persistente por jugador.
+  </Card>
+  <Card title="Multiidioma" icon="language">
+    Localización YAML con selección de idioma por jugador.
+  </Card>
+  <Card title="PlaceholderAPI" icon="puzzle-piece">
+    `%hchat_spy_enabled%`, `%hchat_ignored%`, DND, última vez visto, etc.
+  </Card>
+  <Card title="MiniMessage + hex" icon="palette">
+    Etiquetas MiniMessage, hex `&#RRGGBB` y códigos `&` clásicos.
+  </Card>
+  <Card title="Hover y clic" icon="computer-mouse">
+    Tooltips y acciones clicables en cada línea de chat.
+  </Card>
+  <Card title="Anuncios" icon="bullhorn">
+    `/bc` manual más programador de anuncios automáticos.
+  </Card>
+  <Card title="Moderación" icon="shield-halved">
+    Slowmode, bloqueo de chat y chat de staff (`/sc`).
+  </Card>
+  <Card title="Cadena de filtros" icon="filter">
+    Filtro de palabras, anti-mayúsculas, anti-unicode, anti-publicidad y anti-spam.
+  </Card>
+  <Card title="Registro de chat" icon="file-lines">
+    Logs diarios rotativos con retención configurable.
+  </Card>
+  <Card title="Canales de chat" icon="tower-broadcast">
+    Por mundo, por permiso, alias y enfriamientos.
+  </Card>
+  <Card title="Correo" icon="paper-plane">
+    Mensajes offline con `/hchat mail read\|clear\|send`.
+  </Card>
+  <Card title="AFK" icon="bed">
+    Detección automática de inactividad más `/afk [mensaje]`.
+  </Card>
+  <Card title="Menciones masivas" icon="users">
+    `@everyone` / `@here` con enfriamiento y sonido.
+  </Card>
+  <Card title="Ping y visto" icon="clock">
+    `/ping [jugador]` y `/seen <jugador>`.
+  </Card>
+  <Card title="Repetición de chat" icon="rotate-left">
+    `/hchat replay [jugador]` en un buffer circular.
+  </Card>
+</CardGroup>
 
 ## Requisitos
 
-- Un servidor [Paper](https://papermc.io) 1.20+.
-- Java 21 o superior.
-- [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/) 2.11+.
-- [LuckPerms](https://luckperms.net) (recomendado pero ya no obligatorio).
+<CardGroup cols={3}>
+  <Card title="Paper 1.20+" icon="cube">
+    Un servidor Paper.
+  </Card>
+  <Card title="Java 21+" icon="mug-hot">
+    Runtime requerido.
+  </Card>
+  <Card title="PlaceholderAPI 2.11+" icon="puzzle-piece">
+    Requerido para placeholders.
+  </Card>
+</CardGroup>
 
 ## Enlaces rápidos
 
-- [Repositorio de GitHub](https://github.com/hauchdev/hChat)
-- [Última versión](https://github.com/hauchdev/hChat/releases/latest)
-- [Página de Modrinth](https://modrinth.com/plugin/hchat)
-- [Reportar un problema](https://github.com/hauchdev/hChat/issues)
+<CardGroup cols={3}>
+  <Card title="Repositorio de GitHub" icon="github" href="https://github.com/hauchdev/hChat">
+    Ver código fuente.
+  </Card>
+  <Card title="Última versión" icon="tag" href="https://github.com/hauchdev/hChat/releases/latest">
+    Descargar el último JAR.
+  </Card>
+  <Card title="Página de Modrinth" icon="download" href="https://modrinth.com/plugin/hchat">
+    Ver en Modrinth.
+  </Card>
+</CardGroup>

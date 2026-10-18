@@ -1,6 +1,7 @@
 ---
 title: "hLobby Overview"
 description: "Modern lobby management for Velocity proxies."
+icon: "server"
 ---
 
 # hLobby
@@ -11,7 +12,7 @@ description: "Modern lobby management for Velocity proxies."
   <Card title="Install hLobby" icon="download" href="/en/hLobby/installation">
     Download, install, and verify hLobby on your Velocity proxy.
   </Card>
-  <Card title="Configuration" icon="gear" href="/en/hLobby/configuration">
+  <Card title="Configuration" icon="sliders" href="/en/hLobby/configuration">
     Learn every option in config.yml with examples.
   </Card>
   <Card title="Commands & Permissions" icon="terminal" href="/en/hLobby/commands">
@@ -24,30 +25,69 @@ description: "Modern lobby management for Velocity proxies."
 
 ## Features
 
-| Feature | Description |
-| --- | --- |
-| Smart lobby selection | Random, least/most players, first available, priority, and round-robin strategies. |
-| Teleport countdown | Configurable delay with cancel-on-move, cancel-on-chat, and bypass permission. |
-| Per-player cooldown | Stop spam with a configurable `/lobby` cooldown. |
-| Join redirection | Send players straight to the best lobby on connect. |
-| Kick redirection | Redirect kicked players to a lobby instead of disconnecting them. |
-| Blocked servers | Disable `/lobby` on specific downstream servers. |
-| Fallback server | Join a backup server when no lobby is available. |
-| Join messages | Title, action bar, and chat greeting on lobby join. |
-| Command customization | Rename, alias, or disable every command from `config.yml`. |
-| Multi-language | English and Spanish included; easy to add more. |
-| FastStats metrics | Anonymous usage statistics via faststats.dev, opt-out in config. |
-| GitHub update checker | Notifies operators when a new release is available. |
-| Public API | Small, stable API for third-party plugins. |
+<CardGroup cols={3}>
+  <Card title="Smart routing" icon="route">
+    Random, least/most players, first available, priority, and round-robin strategies.
+  </Card>
+  <Card title="Teleport countdown" icon="hourglass-half">
+    Configurable delay with cancel-on-move, cancel-on-chat, and bypass permission.
+  </Card>
+  <Card title="Cooldowns" icon="stopwatch">
+    Per-player `/lobby` cooldown to stop spam.
+  </Card>
+  <Card title="Join & kick redirect" icon="arrow-right-arrow-left">
+    Send players to a lobby on connect or after a kick.
+  </Card>
+  <Card title="Blocked servers" icon="ban">
+    Disable `/lobby` on specific downstream servers.
+  </Card>
+  <Card title="Fallback server" icon="life-ring">
+    Join a backup server when no lobby is available.
+  </Card>
+  <Card title="Join messages" icon="message">
+    Title, action bar, and chat greeting on lobby join.
+  </Card>
+  <Card title="Command customization" icon="keyboard">
+    Rename, alias, or disable every command from config.
+  </Card>
+  <Card title="Multi-language" icon="language">
+    English and Spanish included; easy to add more.
+  </Card>
+  <Card title="FastStats metrics" icon="chart-simple">
+    Anonymous usage statistics with opt-out in config.
+  </Card>
+  <Card title="Update checker" icon="rotate">
+    Notifies operators when a new release is available.
+  </Card>
+  <Card title="Public API" icon="plug">
+    Small, stable API for third-party plugins.
+  </Card>
+</CardGroup>
 
 ## Requirements
 
-- A [Velocity](https://papermc.io/software/velocity) 3.4.0+ proxy.
-- Java 21 or newer.
-- One or more backend lobby servers registered in `velocity.toml`.
+<CardGroup cols={3}>
+  <Card title="Velocity 3.4.0+" icon="server">
+    A Velocity proxy.
+  </Card>
+  <Card title="Java 21+" icon="mug-hot">
+    Required runtime.
+  </Card>
+  <Card title="Lobby servers" icon="network-wired">
+    Backend servers registered in velocity.toml.
+  </Card>
+</CardGroup>
 
 ## Quick links
 
-- [GitHub repository](https://github.com/hauchdev/hLobby)
-- [Latest release](https://github.com/hauchdev/hLobby/releases/latest)
-- [Report an issue](https://github.com/hauchdev/hLobby/issues)
+<CardGroup cols={3}>
+  <Card title="GitHub repository" icon="github" href="https://github.com/hauchdev/hLobby">
+    View source code.
+  </Card>
+  <Card title="Latest release" icon="tag" href="https://github.com/hauchdev/hLobby/releases/latest">
+    Download the latest JAR.
+  </Card>
+  <Card title="Report an issue" icon="circle-exclamation" href="https://github.com/hauchdev/hLobby/issues">
+    Open a GitHub issue.
+  </Card>
+</CardGroup>

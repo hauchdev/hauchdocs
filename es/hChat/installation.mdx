@@ -1,16 +1,26 @@
 ---
 title: "Instalar hChat"
 description: "Descarga e instala hChat en tu servidor Paper."
+icon: "download"
 ---
 
 ## Requisitos previos
 
-Antes de instalar hChat, asegúrate de tener:
+<CardGroup cols={3}>
+  <Card title="Paper 1.20+" icon="cube">
+    Un servidor Paper en ejecución.
+  </Card>
+  <Card title="Java 21+" icon="mug-hot">
+    Versión de runtime requerida.
+  </Card>
+  <Card title="PlaceholderAPI 2.11+" icon="puzzle-piece">
+    Debe estar instalado.
+  </Card>
+</CardGroup>
 
-- Un servidor [Paper](https://papermc.io) 1.20+ en ejecución.
-- Java 21 o superior.
-- [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/) 2.11+ instalado.
-- [LuckPerms](https://luckperms.net) recomendado para permisos.
+<Tip>
+  [LuckPerms](https://luckperms.net) es recomendado para gestionar permisos.
+</Tip>
 
 ## Descarga
 
@@ -23,20 +33,20 @@ wget https://github.com/hauchdev/hChat/releases/latest/download/hChat.jar
 ## Instalación
 
 <Steps>
-  <Step title="Coloca el jar">
+  <Step title="Coloca el jar" icon="folder-open">
     Mueve el JAR descargado a la carpeta `plugins/` de tu servidor.
 
     ```bash
     mv hChat.jar /ruta/al/servidor/plugins/
     ```
   </Step>
-  <Step title="Instala dependencias">
+  <Step title="Instala dependencias" icon="puzzle-piece">
     Asegúrate de que PlaceholderAPI esté instalado. LuckPerms es recomendado para gestionar permisos.
   </Step>
-  <Step title="Inicia el servidor">
+  <Step title="Inicia el servidor" icon="play">
     Inicia o reinicia tu servidor. hChat creará `plugins/hChat/config.yml` y `plugins/hChat/lang/lang_en.yml` en el primer inicio.
   </Step>
-  <Step title="Configura">
+  <Step title="Configura" icon="sliders">
     Edita `config.yml` para que se ajuste a tu servidor, luego ejecuta `/hchat reload`.
   </Step>
 </Steps>
@@ -54,3 +64,17 @@ Para actualizar hChat:
 3. Vuelve a iniciar el servidor.
 
 Tus archivos de configuración e idioma se conservan. Las nuevas opciones se añaden automáticamente si faltan.
+
+## Siguientes pasos
+
+<CardGroup cols={3}>
+  <Card title="Configuración" icon="sliders" href="/es/hChat/configuration">
+    Aprende todas las opciones de config.
+  </Card>
+  <Card title="Comandos" icon="terminal" href="/es/hChat/commands">
+    Ver todos los comandos disponibles.
+  </Card>
+  <Card title="Permisos" icon="lock" href="/es/hChat/permissions">
+    Configura los permisos.
+  </Card>
+</CardGroup>

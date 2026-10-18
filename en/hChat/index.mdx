@@ -1,6 +1,7 @@
 ---
 title: "hChat Overview"
 description: "A modern and complete chat system for Paper 1.20+ servers."
+icon: "comments"
 ---
 
 # hChat
@@ -11,7 +12,7 @@ description: "A modern and complete chat system for Paper 1.20+ servers."
   <Card title="Install hChat" icon="download" href="/en/hChat/installation">
     Download, install, and verify hChat on your Paper server.
   </Card>
-  <Card title="Configuration" icon="gear" href="/en/hChat/configuration">
+  <Card title="Configuration" icon="sliders" href="/en/hChat/configuration">
     Learn every option in config.yml with examples.
   </Card>
   <Card title="Commands & Permissions" icon="terminal" href="/en/hChat/commands">
@@ -24,37 +25,87 @@ description: "A modern and complete chat system for Paper 1.20+ servers."
 
 ## Features
 
-| Feature | Description |
-| --- | --- |
-| Direct messages | Customizable format with hover tooltips and click-to-reply. |
-| @Mentions | Configurable sound, highlight color, and personal notification. |
-| Spy mode | Monitor private messages with a dedicated permission. |
-| Ignore system | Persistent per-player block list that survives reloads. |
-| Multi-language | YAML localization with per-player language selection. |
-| PlaceholderAPI | `%hchat_spy_enabled%`, `%hchat_ignored%`, DND, last seen, and more. |
-| MiniMessage + hex | MiniMessage tags, `&#RRGGBB` hex, and classic `&` codes. |
-| Hover & click | Tooltips and clickable actions on every chat line. |
-| Broadcasts | Manual `/bc` plus auto-broadcast scheduler. |
-| Moderation | Slowmode, chat lock, and staff chat (`/sc`). |
-| Filter chain | Word filter, anti-caps, anti-unicode, anti-ad, and anti-spam. |
-| Chat logger | Rotating daily logs with configurable retention. |
-| Chat channels | Per-world, per-permission, aliases, cooldowns. |
-| Mail | Offline messages with `/hchat mail read\|clear\|send`. |
-| AFK | Automatic inactivity detection plus `/afk [message]`. |
-| Mass mentions | `@everyone` / `@here` with cooldown and sound. |
-| Ping & seen | `/ping [player]` and `/seen <player>`. |
-| Chat replay | `/hchat replay [player]` on a ring buffer. |
+<CardGroup cols={3}>
+  <Card title="Direct messages" icon="envelope">
+    Customizable format with hover tooltips and click-to-reply.
+  </Card>
+  <Card title="@Mentions" icon="at">
+    Configurable sound, highlight color, and personal notification.
+  </Card>
+  <Card title="Spy mode" icon="eye">
+    Monitor private messages with a dedicated permission.
+  </Card>
+  <Card title="Ignore system" icon="user-slash">
+    Persistent per-player block list that survives reloads.
+  </Card>
+  <Card title="Multi-language" icon="language">
+    YAML localization with per-player language selection.
+  </Card>
+  <Card title="PlaceholderAPI" icon="puzzle-piece">
+    `%hchat_spy_enabled%`, `%hchat_ignored%`, DND, last seen, and more.
+  </Card>
+  <Card title="MiniMessage + hex" icon="palette">
+    MiniMessage tags, `&#RRGGBB` hex, and classic `&` codes.
+  </Card>
+  <Card title="Hover & click" icon="computer-mouse">
+    Tooltips and clickable actions on every chat line.
+  </Card>
+  <Card title="Broadcasts" icon="bullhorn">
+    Manual `/bc` plus auto-broadcast scheduler.
+  </Card>
+  <Card title="Moderation" icon="shield-halved">
+    Slowmode, chat lock, and staff chat (`/sc`).
+  </Card>
+  <Card title="Filter chain" icon="filter">
+    Word filter, anti-caps, anti-unicode, anti-ad, and anti-spam.
+  </Card>
+  <Card title="Chat logger" icon="file-lines">
+    Rotating daily logs with configurable retention.
+  </Card>
+  <Card title="Chat channels" icon="tower-broadcast">
+    Per-world, per-permission, aliases, cooldowns.
+  </Card>
+  <Card title="Mail" icon="paper-plane">
+    Offline messages with `/hchat mail read\|clear\|send`.
+  </Card>
+  <Card title="AFK" icon="bed">
+    Automatic inactivity detection plus `/afk [message]`.
+  </Card>
+  <Card title="Mass mentions" icon="users">
+    `@everyone` / `@here` with cooldown and sound.
+  </Card>
+  <Card title="Ping & seen" icon="clock">
+    `/ping [player]` and `/seen <player>`.
+  </Card>
+  <Card title="Chat replay" icon="rotate-left">
+    `/hchat replay [player]` on a ring buffer.
+  </Card>
+</CardGroup>
 
 ## Requirements
 
-- A [Paper](https://papermc.io) 1.20+ server.
-- Java 21 or newer.
-- [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/) 2.11+.
-- [LuckPerms](https://luckperms.net) (recommended but no longer required).
+<CardGroup cols={3}>
+  <Card title="Paper 1.20+" icon="cube">
+    A Paper server.
+  </Card>
+  <Card title="Java 21+" icon="mug-hot">
+    Required runtime.
+  </Card>
+  <Card title="PlaceholderAPI 2.11+" icon="puzzle-piece">
+    Required for placeholders.
+  </Card>
+</CardGroup>
 
 ## Quick links
 
-- [GitHub repository](https://github.com/hauchdev/hChat)
-- [Latest release](https://github.com/hauchdev/hChat/releases/latest)
-- [Modrinth page](https://modrinth.com/plugin/hchat)
-- [Report an issue](https://github.com/hauchdev/hChat/issues)
+<CardGroup cols={3}>
+  <Card title="GitHub repository" icon="github" href="https://github.com/hauchdev/hChat">
+    View source code.
+  </Card>
+  <Card title="Latest release" icon="tag" href="https://github.com/hauchdev/hChat/releases/latest">
+    Download the latest JAR.
+  </Card>
+  <Card title="Modrinth page" icon="download" href="https://modrinth.com/plugin/hchat">
+    View on Modrinth.
+  </Card>
+</CardGroup>

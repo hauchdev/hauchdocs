@@ -1,15 +1,22 @@
 ---
 title: "Instalar hLobby"
 description: "Descarga e instala hLobby en tu proxy Velocity."
+icon: "download"
 ---
 
 ## Requisitos previos
 
-Antes de instalar hLobby, asegúrate de tener:
-
-- Un proxy [Velocity](https://papermc.io/software/velocity) 3.4.0+ en ejecución.
-- Java 21 o superior.
-- Servidores de lobby registrados en `velocity.toml`.
+<CardGroup cols={3}>
+  <Card title="Velocity 3.4.0+" icon="server">
+    Un proxy Velocity en ejecución.
+  </Card>
+  <Card title="Java 21+" icon="mug-hot">
+    Versión de runtime requerida.
+  </Card>
+  <Card title="Servidores de lobby" icon="network-wired">
+    Servidores backend ya registrados en `velocity.toml`.
+  </Card>
+</CardGroup>
 
 ## Descarga
 
@@ -24,20 +31,20 @@ Reemplaza `hLobby-1.0.0.jar` por la última versión mostrada en la página de r
 ## Instalación
 
 <Steps>
-  <Step title="Coloca el jar">
+  <Step title="Coloca el jar" icon="folder-open">
     Mueve el JAR descargado a la carpeta `plugins/` de Velocity.
 
     ```bash
     mv hLobby-1.0.0.jar /ruta/a/velocity/plugins/
     ```
   </Step>
-  <Step title="Inicia Velocity">
+  <Step title="Inicia Velocity" icon="play">
     Inicia o reinicia tu proxy. hLobby creará `plugins/hLobby/config.yml` y `plugins/hLobby/lang/*.yml` en el primer inicio.
   </Step>
-  <Step title="Añade tus lobbies">
+  <Step title="Añade tus lobbies" icon="pen-to-square">
     Abre `plugins/hLobby/config.yml` y lista tus servidores de lobby bajo `lobby.servers`. Estos nombres deben coincidir con los definidos en `velocity.toml`.
   </Step>
-  <Step title="Recarga">
+  <Step title="Recarga" icon="rotate">
     Ejecuta `/hlobby reload` desde la consola o en el juego con el permiso `lobby.admin.main`.
   </Step>
 </Steps>
@@ -55,3 +62,17 @@ Para actualizar hLobby:
 3. Vuelve a iniciar el proxy.
 
 Tu `config.yml` y archivos de idioma se conservan. Las nuevas opciones de configuración se añaden automáticamente si faltan.
+
+## Siguientes pasos
+
+<CardGroup cols={3}>
+  <Card title="Configuración" icon="sliders" href="/es/hLobby/configuration">
+    Aprende todas las opciones de config.
+  </Card>
+  <Card title="Comandos" icon="terminal" href="/es/hLobby/commands">
+    Ver todos los comandos disponibles.
+  </Card>
+  <Card title="Permisos" icon="lock" href="/es/hLobby/permissions">
+    Configura los permisos.
+  </Card>
+</CardGroup>
