@@ -1,0 +1,76 @@
+---
+title: "Contributing"
+description: "How to contribute to Team Hauchdev projects."
+---
+
+Thank you for your interest in contributing to **Team Hauchdev**. This guide covers hLobby, hChat, and this documentation site.
+
+## Ways to contribute
+
+- **Report bugs** on the relevant GitHub Issues page.
+- **Suggest features** through GitHub Discussions (hChat) or Issues.
+- **Submit pull requests** with fixes or new features.
+- **Improve translations** for language files.
+- **Improve documentation** by editing pages in this repo.
+
+## Before you start
+
+1. Fork the repository you want to contribute to.
+2. Create a feature branch: `git checkout -b feature/my-feature`.
+3. Make your changes.
+4. Run the project tests or build locally.
+5. Commit using clear messages in English or Spanish.
+6. Open a pull request with a description of what changed and why.
+
+## hLobby contributions
+
+When adding a command, permission, or message, update:
+
+- `src/main/resources/config.yml`
+- `src/main/resources/lang/en.yml` and `es.yml`
+- `README.md` and `docs/CONFIGURATION.md`
+- Unit tests when applicable
+
+Build locally with:
+
+```bash
+./gradlew build
+```
+
+## hChat contributions
+
+Please follow [Conventional Commits](https://www.conventionalcommits.org/) (Spanish or English both fine). When you add a command, permission, or feature, update:
+
+- `lang_en.yml` and language files
+- `plugin.yml`
+- `README.md`
+- This documentation site
+
+Make sure the project stays green:
+
+```bash
+mvn clean verify
+```
+
+See [ROADMAP.md](https://github.com/hauchdev/hChat/blob/dev/ROADMAP.md) for the larger picture.
+
+## Documentation contributions
+
+This site is built with [Mintlify](https://mintlify.com). Pages are MDX files with YAML frontmatter.
+
+To preview locally:
+
+```bash
+npm i -g mint
+mint dev
+```
+
+When adding a new page, register it in `docs.json` under the correct locale and group.
+
+## Code of Conduct
+
+Be respectful, constructive, and inclusive. Harassment or toxic behavior is not tolerated.
+
+## Questions?
+
+Open a discussion on [GitHub](https://github.com/hauchdev/hChat/discussions) or reach out through the project's issue tracker.
