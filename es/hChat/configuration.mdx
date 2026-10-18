@@ -1,0 +1,118 @@
+---
+title: "Configuración de hChat"
+description: "Referencia completa del config.yml de hChat."
+---
+
+En el primer inicio, hChat genera `plugins/hChat/config.yml`. Esta página cubre las secciones más importantes. Para una configuración completa, inspecciona el archivo generado directamente.
+
+## Secciones principales
+
+- `general` — idioma, debug, comprobación de actualizaciones.
+- `chat` — formato por defecto, formatos por permiso, modo de formato.
+- `channels` — formato por canal, rango, enfriamiento, alias, permisos.
+- `private-messages` — formato de MP, formato de espía, sonido, hover, acciones de clic.
+- `mentions` — sonido, color, enfriamiento.
+- `broadcast` — anuncios manuales y programados.
+- `filters` — filtro de palabras, anti-mayúsculas, anti-unicode, anti-publicidad, anti-spam.
+- `offline-messages` — límites de almacenamiento y notificaciones de correo.
+- `afk` — tiempo de espera, detección automática, mensajes.
+- `placeholders` — tokens de ping, item, coords, mundo, AFK.
+- `logger` — logs diarios rotativos y retención.
+- `metrics` — ajustes de FastStats.
+
+## Modos de formato
+
+El renderizador resuelve los formatos en dos pasos: primero sustituye placeholders, luego el formateador analiza el resultado.
+
+| Modo | Comportamiento |
+| --- | --- |
+| `legacy` | Códigos `&` clásicos + hex `&#RRGGBB` (por defecto, compatible hacia atrás). |
+| `minimessage` | Etiquetas MiniMessage (`<red>`, `<gradient:red:blue>`, `<#RRGGBB>`, hover/click). Los códigos `&` y hex `&#RRGGBB` siguen traduciéndose. |
+| `auto` | Legacy si el formato contiene códigos `&`, MiniMessage en caso contrario. |
+
+Cada canal puede anular el modo global con su propia clave `format-mode`, por lo que un canal `global` en legacy y un canal `staff` en MiniMessage pueden coexistir.
+
+## Tokens dinámicos de chat
+
+hChat resuelve los siguientes tokens dentro de cada formato de chat:
+
+| Token | Se reemplaza por |
+| --- | --- |
+| `[ping]` | Indicador de latencia coloreado. |
+| `[item]` | Objeto de la mano principal con tooltip. |
+| `[coords]` | Posición del jugador como `x, y, z`. |
+| `[world]` | Nombre del mundo actual. |
+| `[afk]` | Prefijo `[AFK]` cuando el jugador está ausente. |
+
+Ejemplo de formato:
+
+```yaml
+chat:
+  default-format: "[ping] [afk]&7{player}&8: &f{message}"
+```
+
+Cada token se puede activar/desactivar y ajustar en la sección `placeholders:`.
+
+## Configuración de ejemplo
+
+```yaml
+general:
+  lang: es
+  debug: false
+  check-updates: true
+
+chat:
+  format-mode: legacy
+  default-format: "[ping] [afk]&7{player}&8: &f{message}"
+  formats:
+    vip:
+      permission: hchat.format.vip
+      format: "&a[VIP] &7{player}&8: &f{message}"
+
+channels:
+  enabled: true
+  default: global
+  local:
+    format: "&8[Local] &7{player} &8» &f{message}"
+    range: 80
+    alias: "#l"
+  staff:
+    format: "&c[Staff] {player} &8» &f{message}"
+    speak-permission: hchat.channel.staff
+    see-permission: hchat.channel.staff.see
+    alias: "#staff"
+
+filters:
+  word-filter:
+    enabled: true
+    words:
+      - "palabrota1"
+    action: block
+  anti-caps:
+    enabled: true
+    action: lowercase
+  anti-unicode:
+    enabled: true
+    action: block
+  anti-ad:
+    enabled: true
+    action: warn
+  anti-spam:
+    enabled: true
+    global-cooldown-ms: 1500
+    action: block
+
+logger:
+  enabled: true
+  retention-days: 7
+```
+
+## Recargar la configuración
+
+Después de editar `config.yml`, ejecuta:
+
+```bash
+/hchat reload
+```
+
+Necesitas el permiso `hchat.reload`.
