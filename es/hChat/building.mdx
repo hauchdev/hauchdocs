@@ -1,0 +1,38 @@
+---
+title: "Compilar hChat desde el código fuente"
+description: "Compila hChat con Maven."
+---
+
+## Requisitos
+
+- JDK 21 o superior.
+- Maven 3.5 o superior.
+
+## Clonar y compilar
+
+```bash
+# Clona el repositorio
+git clone https://github.com/hauchdev/hChat.git
+cd hChat
+
+# Compila y empaqueta
+mvn clean package
+```
+
+El JAR sombreado está en:
+
+```
+plugin-dist/target/hChat-<version>.jar
+```
+
+## Gestión de versiones
+
+La versión del plugin vive en un solo lugar: la propiedad `<revision>` al inicio del `pom.xml` raíz. Cámbiala allí o pasa `-Drevision=1.3.0` a Maven, y cada módulo, la versión filtrada de `plugin.yml` y el nombre final del jar siguen automáticamente. Nunca tienes que tocar los otros 13 archivos POM.
+
+## Configuración del IDE
+
+Abre el proyecto en IntelliJ IDEA o Eclipse. Maven descargará las dependencias automáticamente.
+
+## Integración continua
+
+hChat usa `.github/workflows/build.yml`. Cada push a `dev` ejecuta `mvn clean verify`. Las compilaciones etiquetadas con `v*` publican además una GitHub Release con el JAR empaquetado.
