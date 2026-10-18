@@ -1,0 +1,64 @@
+---
+title: "hChat Developer API"
+description: "Integrate hChat into your own plugins."
+---
+
+`HChatProvider` is the public entry point for other plugins.
+
+## Getting the API
+
+```java
+import dev.hauch.hchat.api.HChatProvider;
+import dev.hauch.hchat.model.ChatChannel;
+
+public class MyListener {
+
+    public void demo() {
+        HChatProvider api = HChatProvider.get();
+
+        // Who is spying right now
+        for (UUID uuid : api.spyManager().getSpies()) {
+            // ...
+        }
+
+        // Last private message received by a player
+        api.messageHistory().getLastMessage(player.getUniqueId());
+
+        // The player's active channel
+        ChatChannel channel = api.channelManager().activeChannel(player);
+
+        // Broadcast through an existing channel
+        api.publishToChannel(api.channelManager().get("staff"),
+                "Server restarting in 5 minutes!");
+
+        // DND state
+        api.dndManager().isDnd(player);
+    }
+}
+```
+
+<Warning>
+  `HChatProvider.get()` throws `IllegalStateException` before the plugin is fully initialized. Access it from `ServerLoadEvent` or later.
+</Warning>
+
+## Dependency declaration
+
+Other plugins depending on hChat should declare it as a `softdepend` (or `depend`) in their `plugin.yml`:
+
+```yaml
+name: MyPlugin
+version: 1.0.0
+main: com.example.myplugin.MyPlugin
+softdepend:
+  - hChat
+```
+
+## API services
+
+| Service | Description |
+| --- | --- |
+| `spyManager()` | Query and toggle spy mode. |
+| `messageHistory()` | Access recent private messages. |
+| `channelManager()` | Query and switch channels. |
+| `dndManager()` | Query and toggle DND state. |
+| `publishToChannel(channel, message)` | Broadcast to a channel honoring its see-permission. |
