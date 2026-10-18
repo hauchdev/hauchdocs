@@ -1,0 +1,53 @@
+---
+title: "Visión general de hLobby"
+description: "Gestión moderna de lobbies para proxies Velocity."
+---
+
+# hLobby
+
+**hLobby** es un sistema de lobbies altamente configurable para [Velocity](https://papermc.io/software/velocity) 3.4.0+. Ofrece enrutamiento inteligente, cuenta atrás de teletransporte, redirección de expulsiones, mensajes multilingües y una API pública pequeña.
+
+<CardGroup cols={2}>
+  <Card title="Instalar hLobby" icon="download" href="/es/hLobby/installation">
+    Descarga, instala y verifica hLobby en tu proxy Velocity.
+  </Card>
+  <Card title="Configuración" icon="gear" href="/es/hLobby/configuration">
+    Aprende todas las opciones de config.yml con ejemplos.
+  </Card>
+  <Card title="Comandos y permisos" icon="terminal" href="/es/hLobby/commands">
+    Referencia completa de comandos y permisos.
+  </Card>
+  <Card title="API para desarrolladores" icon="code" href="/es/hLobby/api">
+    Integra hLobby en tus propios plugins.
+  </Card>
+</CardGroup>
+
+## Características
+
+| Característica | Descripción |
+| --- | --- |
+| Selección inteligente de lobby | Estrategias aleatoria, menos/más jugadores, primero disponible, prioridad y round-robin. |
+| Cuenta atrás de teletransporte | Retraso configurable con cancelación al moverse, al chatear y permiso de omisión. |
+| Enfriamiento por jugador | Evita el spam con un enfriamiento configurable para `/lobby`. |
+| Redirección al entrar | Envía a los jugadores al mejor lobby al conectarse. |
+| Redirección de expulsiones | Redirige a los jugadores expulsados a un lobby en lugar de desconectarlos. |
+| Servidores bloqueados | Desactiva `/lobby` en servidores específicos. |
+| Servidor de respaldo | Une a un servidor de respaldo cuando no haya lobbies disponibles. |
+| Mensajes de entrada | Título, action bar y mensaje de chat al entrar a un lobby. |
+| Personalización de comandos | Renombra, crea alias o desactiva cada comando desde `config.yml`. |
+| Multiidioma | Inglés y español incluidos; fácil añadir más. |
+| Métricas FastStats | Estadísticas de uso anónimas vía faststats.dev; se puede desactivar. |
+| Comprobador de actualizaciones | Notifica a los operadores cuando hay una nueva versión. |
+| API pública | API pequeña y estable para plugins de terceros. |
+
+## Requisitos
+
+- Un proxy [Velocity](https://papermc.io/software/velocity) 3.4.0+.
+- Java 21 o superior.
+- Uno o más servidores de lobby registrados en `velocity.toml`.
+
+## Enlaces rápidos
+
+- [Repositorio de GitHub](https://github.com/hauchdev/hLobby)
+- [Última versión](https://github.com/hauchdev/hLobby/releases/latest)
+- [Reportar un problema](https://github.com/hauchdev/hLobby/issues)

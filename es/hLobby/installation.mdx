@@ -1,0 +1,57 @@
+---
+title: "Instalar hLobby"
+description: "Descarga e instala hLobby en tu proxy Velocity."
+---
+
+## Requisitos previos
+
+Antes de instalar hLobby, asegúrate de tener:
+
+- Un proxy [Velocity](https://papermc.io/software/velocity) 3.4.0+ en ejecución.
+- Java 21 o superior.
+- Servidores de lobby registrados en `velocity.toml`.
+
+## Descarga
+
+Descarga el JAR más reciente desde la [página de releases](https://github.com/hauchdev/hLobby/releases/latest).
+
+```bash
+wget https://github.com/hauchdev/hLobby/releases/latest/download/hLobby-1.0.0.jar
+```
+
+Reemplaza `hLobby-1.0.0.jar` por la última versión mostrada en la página de releases.
+
+## Instalación
+
+<Steps>
+  <Step title="Coloca el jar">
+    Mueve el JAR descargado a la carpeta `plugins/` de Velocity.
+
+    ```bash
+    mv hLobby-1.0.0.jar /ruta/a/velocity/plugins/
+    ```
+  </Step>
+  <Step title="Inicia Velocity">
+    Inicia o reinicia tu proxy. hLobby creará `plugins/hLobby/config.yml` y `plugins/hLobby/lang/*.yml` en el primer inicio.
+  </Step>
+  <Step title="Añade tus lobbies">
+    Abre `plugins/hLobby/config.yml` y lista tus servidores de lobby bajo `lobby.servers`. Estos nombres deben coincidir con los definidos en `velocity.toml`.
+  </Step>
+  <Step title="Recarga">
+    Ejecuta `/hlobby reload` desde la consola o en el juego con el permiso `lobby.admin.main`.
+  </Step>
+</Steps>
+
+## Verifica la instalación
+
+Ejecuta `/hlobby about` en el juego o `hlobby about` desde la consola. Deberías ver la versión del plugin, el estado de las métricas y el enlace del sitio web.
+
+## Actualizar
+
+Para actualizar hLobby:
+
+1. Detén tu proxy Velocity.
+2. Reemplaza el JAR antiguo por el nuevo en `plugins/`.
+3. Vuelve a iniciar el proxy.
+
+Tu `config.yml` y archivos de idioma se conservan. Las nuevas opciones de configuración se añaden automáticamente si faltan.
