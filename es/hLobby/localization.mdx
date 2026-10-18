@@ -1,0 +1,49 @@
+---
+title: "Localización de hLobby"
+description: "Traduce y personaliza los mensajes de hLobby."
+---
+
+Los mensajes de hLobby usan formato [MiniMessage](https://docs.advntr.dev/minimessage/format.html). Los archivos de idioma están en `plugins/hLobby/lang/` y se extraen del jar en el primer inicio.
+
+## Idiomas incluidos
+
+| Idioma | Archivo |
+| --- | --- |
+| Inglés | `en.yml` (por defecto) |
+| Español | `es.yml` |
+
+## Cambiar de idioma
+
+Escribe el nombre del archivo sin extensión en `config.yml`:
+
+```yaml
+general:
+  language: es
+```
+
+Luego ejecuta `/hlobby reload`.
+
+## Añadir un nuevo idioma
+
+1. Copia `en.yml` a un archivo nuevo, por ejemplo `fr.yml`.
+2. Traduce los mensajes.
+3. Pon `general.language: fr` y recarga.
+
+## Referencia rápida de MiniMessage
+
+| Etiqueta | Resultado |
+| --- | --- |
+| `<red>texto</red>` | Texto rojo. |
+| `<#FF0000>texto` | Color hex personalizado. |
+| `<bold>texto</bold>` | Texto en negrita. |
+| `<click:run_command:/lobby>Clic</click>` | Texto clicable. |
+| `<hover:show_text:'Hola'>Pasa el ratón</hover>` | Tooltip al pasar el ratón. |
+| `<gradient:blue:aqua>texto</gradient>` | Texto degradado. |
+
+## Placeholders comunes
+
+| Placeholder | Se reemplaza por |
+| --- | --- |
+| `{player}` | El nombre del jugador. |
+| `{server}` | El nombre del servidor destino. |
+| `{mode}` | El modo de teletransporte actual. |

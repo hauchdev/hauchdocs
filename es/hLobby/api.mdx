@@ -1,0 +1,57 @@
+---
+title: "API de desarrollador de hLobby"
+description: "Integra hLobby en tus propios plugins."
+---
+
+hLobby expone una API pública pequeña y estable a través de `HLobbyProvider`.
+
+## Obtener la API
+
+```java
+import dev.hauch.hlobby.api.HLobbyProvider;
+
+public class MiPlugin {
+
+    public void ejemplo() {
+        HLobbyProvider api = HLobbyProvider.instance();
+        if (api == null) {
+            // hLobby no está cargado
+            return;
+        }
+
+        // Selecciona el mejor lobby para un jugador
+        api.lobbyManager().selectLobby(jugador).ifPresent(lobby -> {
+            api.teleportService().teleport(jugador, lobby);
+        });
+    }
+}
+```
+
+## Servicios disponibles
+
+| Servicio | Descripción |
+| --- | --- |
+| `lobbyManager()` | Consultar y seleccionar lobbies. |
+| `teleportService()` | Teletransportar jugadores a un lobby. |
+
+## Añadir hLobby como dependencia
+
+Declara un `softdepend` en tu `velocity-plugin.json`:
+
+```json
+{
+  "id": "miplugin",
+  "name": "MiPlugin",
+  "version": "1.0.0",
+  "dependencies": [
+    {
+      "id": "hlobby",
+      "optional": true
+    }
+  ]
+}
+```
+
+## Compilar con hLobby
+
+Incluye el JAR de hLobby en tu ruta de compilación o repositorio. El paquete de la API es `dev.hauch.hlobby.api`.
