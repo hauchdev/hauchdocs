@@ -1,0 +1,56 @@
+---
+title: "Installing hChat"
+description: "Download and install hChat on your Paper server."
+---
+
+## Prerequisites
+
+Before installing hChat, make sure you have:
+
+- A running [Paper](https://papermc.io) 1.20+ server.
+- Java 21 or newer.
+- [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/) 2.11+ installed.
+- [LuckPerms](https://luckperms.net) recommended for permissions.
+
+## Download
+
+Download the latest JAR from the [releases page](https://github.com/hauchdev/hChat/releases/latest) or from [Modrinth](https://modrinth.com/plugin/hchat).
+
+```bash
+wget https://github.com/hauchdev/hChat/releases/latest/download/hChat.jar
+```
+
+## Install
+
+<Steps>
+  <Step title="Place the jar">
+    Move the downloaded JAR into your server's `plugins/` folder.
+
+    ```bash
+    mv hChat.jar /path/to/server/plugins/
+    ```
+  </Step>
+  <Step title="Install dependencies">
+    Make sure PlaceholderAPI is installed. LuckPerms is recommended for permission management.
+  </Step>
+  <Step title="Start the server">
+    Start or restart your server. hChat will create `plugins/hChat/config.yml` and `plugins/hChat/lang/lang_en.yml` on first start.
+  </Step>
+  <Step title="Configure">
+    Edit `config.yml` to match your server setup, then run `/hchat reload`.
+  </Step>
+</Steps>
+
+## Verify the installation
+
+Run `/hchat about` in-game or `hchat about` from the console. You should see the plugin version, authors, and feature overview.
+
+## Updating
+
+To update hChat:
+
+1. Stop your server.
+2. Replace the old JAR with the new one in `plugins/`.
+3. Start the server again.
+
+Your config and language files are preserved. New options are added automatically when missing.
