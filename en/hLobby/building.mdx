@@ -1,0 +1,34 @@
+---
+title: "Building hLobby from Source"
+description: "Compile hLobby with Gradle."
+---
+
+## Requirements
+
+- JDK 21 or newer.
+- Gradle 8.5+ (the wrapper is included).
+
+## Clone and build
+
+```bash
+# Clone the repository
+git clone https://github.com/hauchdev/hlobby.git
+cd hlobby
+
+# Build the shaded jar
+./gradlew build
+```
+
+The distributable jar is at:
+
+```
+build/libs/hLobby-<version>.jar
+```
+
+## IDE setup
+
+Open the project in IntelliJ IDEA or Eclipse. Gradle will download dependencies automatically.
+
+## Continuous integration
+
+hLobby uses `.github/workflows/build.yml`. Every push runs `./gradlew build` on Ubuntu and Windows. Tagged `v*` builds additionally publish a GitHub Release with the packaged JAR.

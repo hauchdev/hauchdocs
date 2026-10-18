@@ -1,0 +1,49 @@
+---
+title: "hLobby Troubleshooting"
+description: "Common issues and solutions for hLobby."
+---
+
+## Players are disconnected instead of redirected to a lobby
+
+Make sure `lobby.fallback-server` is set to a valid, registered server and that `kick-redirect` is enabled:
+
+```yaml
+lobby:
+  kick-redirect: true
+  fallback-server: fallback
+```
+
+## `/lobby` does nothing
+
+- Verify the player has `lobby.use`.
+- Check that `lobby.servers` contains valid server names from `velocity.toml`.
+- Make sure the server is not in `lobby.blocked-servers`.
+- Enable `general.debug` and check the console for errors.
+
+## Teleport countdown never finishes
+
+- If `cancel-on-move` is true, any movement cancels it.
+- If `cancel-on-chat` is true, chatting cancels it.
+- Players with `lobby.bypass.countdown` skip it entirely.
+
+## Language file not found
+
+The value of `general.language` must match a file in `plugins/hLobby/lang/` without the `.yml` extension. For example, use `es` for `es.yml`.
+
+## Update checker fails
+
+The proxy must be able to reach `api.github.com`. If it cannot, disable update checks:
+
+```yaml
+general:
+  check-updates: false
+```
+
+## Still stuck?
+
+Open an issue on [GitHub](https://github.com/hauchdev/hLobby/issues) with:
+
+- Your Velocity version.
+- Your hLobby version.
+- Your `config.yml` (redact sensitive data).
+- Relevant console logs.
