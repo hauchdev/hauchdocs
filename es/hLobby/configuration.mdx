@@ -1,0 +1,128 @@
+---
+title: "Configuración de hLobby"
+description: "Referencia completa del config.yml de hLobby."
+---
+
+En el primer inicio, hLobby genera `plugins/hLobby/config.yml`. Esta página explica cada sección.
+
+## Configuración por defecto completa
+
+```yaml
+general:
+  language: en
+  debug: false
+  check-updates: true
+
+lobby:
+  teleport-mode: LEAST_PLAYERS
+  servers:
+    - lobby-1
+    - lobby-2
+  fallback-server: fallback
+  blocked-servers:
+    - pvp
+  join-redirect: true
+  kick-redirect: true
+  countdown:
+    enabled: true
+    duration-seconds: 3
+    cancel-on-move: true
+    cancel-on-chat: true
+  cooldown:
+    enabled: true
+    duration-seconds: 5
+
+join-messages:
+  enabled: true
+  title:
+    enabled: true
+    title: "<gradient:blue:aqua>hLobby</gradient>"
+    subtitle: "<gray>Bienvenido al lobby</gray>"
+    fade-in: 10
+    stay: 70
+    fade-out: 20
+  action-bar:
+    enabled: true
+    message: "<aqua>Bienvenido, <white>{player}</white>!</aqua>"
+  chat:
+    enabled: true
+    message: "<aqua>Bienvenido al lobby, <white>{player}</white>!</aqua>"
+
+commands:
+  lobby:
+    name: lobby
+    aliases:
+      - hub
+      - leave
+    enabled: true
+  hlobby:
+    name: hlobby
+    aliases: []
+    enabled: true
+
+metrics:
+  enabled: true
+
+messages:
+  prefix: "<blue>[hLobby]</blue> "
+```
+
+## Referencia de secciones
+
+### general
+
+| Opción | Tipo | Por defecto | Descripción |
+| --- | --- | --- | --- |
+| `language` | string | `en` | Archivo de idioma a usar desde `plugins/hLobby/lang/`. |
+| `debug` | boolean | `false` | Activa logs extra en la consola para solucionar problemas. |
+| `check-updates` | boolean | `true` | Consulta GitHub Releases para buscar actualizaciones al inicio. |
+
+### lobby
+
+| Opción | Tipo | Por defecto | Descripción |
+| --- | --- | --- | --- |
+| `teleport-mode` | enum | `LEAST_PLAYERS` | Estrategia para elegir un lobby. Ver más abajo. |
+| `servers` | lista | `[]` | Nombres de servidores de lobby desde `velocity.toml`. |
+| `fallback-server` | string | `fallback` | Servidor de respaldo cuando no haya lobbies disponibles. |
+| `blocked-servers` | lista | `[]` | Servidores donde `/lobby` está desactivado. |
+| `join-redirect` | boolean | `true` | Envía a los jugadores a un lobby al conectarse. |
+| `kick-redirect` | boolean | `true` | Redirige a los jugadores expulsados a un lobby. |
+| `countdown.enabled` | boolean | `true` | Activa el retraso de teletransporte. |
+| `countdown.duration-seconds` | int | `3` | Retraso antes de teletransportar. |
+| `countdown.cancel-on-move` | boolean | `true` | Cancela la cuenta atrás si el jugador se mueve. |
+| `countdown.cancel-on-chat` | boolean | `true` | Cancela la cuenta atrás si el jugador chatea. |
+| `cooldown.enabled` | boolean | `true` | Activa el enfriamiento de `/lobby`. |
+| `cooldown.duration-seconds` | int | `5` | Duración del enfriamiento en segundos. |
+
+### Modos de teletransporte
+
+| Modo | Comportamiento |
+| --- | --- |
+| `RANDOM` | Elige un lobby aleatorio. |
+| `LEAST_PLAYERS` | Elige el lobby con menos jugadores. |
+| `MOST_PLAYERS` | Elige el lobby con más jugadores. |
+| `FIRST_AVAILABLE` | Elige el primer lobby en línea de la lista. |
+| `PRIORITY` | Usa el orden de `lobby.servers` como prioridad. |
+| `ROUND_ROBIN` | Recorre los lobbies de forma equilibrada. |
+
+### join-messages
+
+Controla el título, action bar y chat que se muestran cuando un jugador entra a un lobby. Soporta formato [MiniMessage](https://docs.advntr.dev/minimessage/format.html) y el placeholder `{player}`.
+
+### commands
+
+Cada comando se puede renombrar, crear alias o desactivar. Los cambios requieren una recarga o reinicio.
+
+### metrics
+
+hLobby usa [FastStats](https://faststats.dev/) para estadísticas de uso anónimas. Pon `enabled: false` para optar por no participar.
+
+## Recargar la configuración
+
+Después de editar `config.yml`, ejecuta:
+
+```bash
+/hlobby reload
+```
+
+Necesitas el permiso `lobby.admin.main`.
