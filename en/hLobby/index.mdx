@@ -1,0 +1,53 @@
+---
+title: "hLobby Overview"
+description: "Modern lobby management for Velocity proxies."
+---
+
+# hLobby
+
+**hLobby** is a highly configurable, proxy-side lobby system for [Velocity](https://papermc.io/software/velocity) 3.4.0+. It provides smart routing, teleport countdowns, kick redirection, multi-language messages, and a small public API.
+
+<CardGroup cols={2}>
+  <Card title="Install hLobby" icon="download" href="/en/hLobby/installation">
+    Download, install, and verify hLobby on your Velocity proxy.
+  </Card>
+  <Card title="Configuration" icon="gear" href="/en/hLobby/configuration">
+    Learn every option in config.yml with examples.
+  </Card>
+  <Card title="Commands & Permissions" icon="terminal" href="/en/hLobby/commands">
+    Full command and permission reference.
+  </Card>
+  <Card title="Developer API" icon="code" href="/en/hLobby/api">
+    Integrate hLobby into your own plugins.
+  </Card>
+</CardGroup>
+
+## Features
+
+| Feature | Description |
+| --- | --- |
+| Smart lobby selection | Random, least/most players, first available, priority, and round-robin strategies. |
+| Teleport countdown | Configurable delay with cancel-on-move, cancel-on-chat, and bypass permission. |
+| Per-player cooldown | Stop spam with a configurable `/lobby` cooldown. |
+| Join redirection | Send players straight to the best lobby on connect. |
+| Kick redirection | Redirect kicked players to a lobby instead of disconnecting them. |
+| Blocked servers | Disable `/lobby` on specific downstream servers. |
+| Fallback server | Join a backup server when no lobby is available. |
+| Join messages | Title, action bar, and chat greeting on lobby join. |
+| Command customization | Rename, alias, or disable every command from `config.yml`. |
+| Multi-language | English and Spanish included; easy to add more. |
+| FastStats metrics | Anonymous usage statistics via faststats.dev, opt-out in config. |
+| GitHub update checker | Notifies operators when a new release is available. |
+| Public API | Small, stable API for third-party plugins. |
+
+## Requirements
+
+- A [Velocity](https://papermc.io/software/velocity) 3.4.0+ proxy.
+- Java 21 or newer.
+- One or more backend lobby servers registered in `velocity.toml`.
+
+## Quick links
+
+- [GitHub repository](https://github.com/hauchdev/hLobby)
+- [Latest release](https://github.com/hauchdev/hLobby/releases/latest)
+- [Report an issue](https://github.com/hauchdev/hLobby/issues)
