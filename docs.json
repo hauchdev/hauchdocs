@@ -139,8 +139,8 @@
     },
     "links": [
       {
-        "title": "Projects",
-        "links": [
+        "header": "Projects",
+        "items": [
           {
             "label": "hLobby",
             "href": "https://github.com/hauchdev/hLobby"
@@ -152,8 +152,8 @@
         ]
       },
       {
-        "title": "Community",
-        "links": [
+        "header": "Community",
+        "items": [
           {
             "label": "Contributing",
             "href": "/en/contributing"
