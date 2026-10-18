@@ -1,0 +1,23 @@
+---
+title: "hChat en proxies"
+description: "Notas para ejecutar hChat detrás de Velocity o BungeeCord."
+---
+
+hChat se ejecuta dentro de los servidores backend, no en el proxy. Ten en cuenta estos puntos al ejecutar una red.
+
+## Lo que funciona automáticamente
+
+- `Player#getUniqueId` y `%player_name%` siguen funcionando detrás de Velocity y BungeeCord — Paper reenvía el UUID y nombre real al backend.
+- Los placeholders `{world}` y `[coords]` se resuelven en el backend donde está el jugador.
+
+## Lo que es por servidor
+
+Los mensajes privados, mensajes offline, listas de ignore y el estado DND son **por servidor backend**. Un jugador conectado al servidor A no puede hacer `/msg` a un jugador en el servidor B. Para chat cross-server, usa una solución en el proxy o el puente de DiscordSRV planificado.
+
+## Anuncios automáticos
+
+El comprobador de actualizaciones, las métricas de faststats.dev y el programador de anuncios automáticos se ejecutan una vez por instancia backend. Desactiva los anuncios automáticos en todos menos en un servidor si ejecutas una red y no quieres anuncios duplicados.
+
+## DiscordSRV
+
+Cuando DiscordSRV está instalado al inicio, hChat registra una confirmación y reserva la integración para el futuro puente de chat. El reenvío de `/msg` y `/broadcast` a Discord aún no está implementado — consulta `ROADMAP.md` para el puente planificado.

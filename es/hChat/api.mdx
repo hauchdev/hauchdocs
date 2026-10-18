@@ -1,0 +1,64 @@
+---
+title: "API de desarrollador de hChat"
+description: "Integra hChat en tus propios plugins."
+---
+
+`HChatProvider` es el punto de entrada público para otros plugins.
+
+## Obtener la API
+
+```java
+import dev.hauch.hchat.api.HChatProvider;
+import dev.hauch.hchat.model.ChatChannel;
+
+public class MiListener {
+
+    public void ejemplo() {
+        HChatProvider api = HChatProvider.get();
+
+        // Quién está en modo espía ahora
+        for (UUID uuid : api.spyManager().getSpies()) {
+            // ...
+        }
+
+        // Último mensaje privado recibido por un jugador
+        api.messageHistory().getLastMessage(jugador.getUniqueId());
+
+        // Canal activo del jugador
+        ChatChannel canal = api.channelManager().activeChannel(jugador);
+
+        // Difunde por un canal existente
+        api.publishToChannel(api.channelManager().get("staff"),
+                "El servidor se reinicia en 5 minutos!");
+
+        // Estado DND
+        api.dndManager().isDnd(jugador);
+    }
+}
+```
+
+<Warning>
+  `HChatProvider.get()` lanza `IllegalStateException` antes de que el plugin se inicialice por completo. Accede a ella desde `ServerLoadEvent` o más tarde.
+</Warning>
+
+## Declaración de dependencia
+
+Otros plugins que dependan de hChat deben declararlo como `softdepend` (o `depend`) en su `plugin.yml`:
+
+```yaml
+name: MiPlugin
+version: 1.0.0
+main: com.ejemplo.miplugin.MiPlugin
+softdepend:
+  - hChat
+```
+
+## Servicios de la API
+
+| Servicio | Descripción |
+| --- | --- |
+| `spyManager()` | Consultar y alternar modo espía. |
+| `messageHistory()` | Acceder a mensajes privados recientes. |
+| `channelManager()` | Consultar y cambiar canales. |
+| `dndManager()` | Consultar y alternar estado DND. |
+| `publishToChannel(channel, message)` | Difundir a un canal respetando su see-permission. |
