@@ -1,0 +1,44 @@
+---
+title: "hChat Troubleshooting"
+description: "Common issues and solutions for hChat."
+---
+
+## Chat format does not show colors
+
+- Make sure `chat.format-mode` is set correctly (`legacy`, `minimessage`, or `auto`).
+- If using PlaceholderAPI expansions, download and enable them.
+- Verify the player has the correct format permission (e.g., `hchat.format.vip`).
+
+## Players cannot send private messages
+
+- Verify `hchat.message` and `hchat.reply` are granted.
+- If the target is offline, mail is stored only if the target has played before.
+- If the sender has DND enabled, they cannot send or receive DMs unless configured otherwise.
+
+## Staff chat is visible to everyone
+
+Check that the `staff` channel has proper `speak-permission` and `see-permission` set, and that non-staff players do not have those permissions.
+
+## Filters are too aggressive or not working
+
+- Enable `general.debug` to see filter decisions in the console.
+- Adjust `max-uppercase-percent`, `similarity-threshold`, and pattern lists.
+- Add false positives to the anti-ad whitelist.
+
+## PlaceholderAPI placeholders show as raw text
+
+- Make sure PlaceholderAPI is installed and the required expansions are loaded.
+- Some placeholders require the target player to be online.
+
+## AFK not detected automatically
+
+Check `afk.auto-timeout-seconds` and `afk.unset-on-activity`. If the timeout is too high or activity detection is disabled, AFK will not trigger.
+
+## Still stuck?
+
+Open an issue on [GitHub](https://github.com/hauchdev/hChat/issues) with:
+
+- Your Paper version.
+- Your hChat version.
+- Your `config.yml` (redact sensitive data).
+- Relevant console logs.
