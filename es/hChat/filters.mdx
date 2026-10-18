@@ -1,0 +1,80 @@
+---
+title: "Filtros de hChat"
+description: "Configura la cadena de filtros de hChat."
+---
+
+Cada mensaje de chat pasa por una cadena de filtros en este orden:
+
+```
+word-filter → anti-unicode → anti-caps → anti-ad → anti-spam
+```
+
+Cada filtro soporta las mismas acciones:
+
+| Acción | Comportamiento |
+| --- | --- |
+| `block` | Descarta el mensaje y notifica al remitente con `message-filtered`. |
+| `mask` | Reemplaza la parte ofensiva por `*` y reenvía el mensaje. |
+| `warn` | Deja pasar el mensaje y alerta a los jugadores con `hchat.monitor.filter`. |
+| `lowercase` | Transforma el mensaje a minúsculas (solo anti-mayúsculas). |
+
+## Filtro de palabras
+
+```yaml
+word-filter:
+  enabled: true
+  words:
+    - "palabrota1"
+    - "palabrota2"
+  action: "block"   # block | mask | warn
+```
+
+## Anti-mayúsculas
+
+Bloquea, oculta o pone en minúsculas mensajes que son mayormente mayúsculas.
+
+```yaml
+anti-caps:
+  enabled: true
+  max-uppercase-percent: 70
+  min-length: 4
+  action: "lowercase"
+```
+
+## Anti-unicode
+
+Bloquea caracteres invisibles usados para evadir filtros: espacios de ancho cero, anulaciones de dirección, BOM, caracteres de etiqueta (`U+E0000+`) y guiones suaves.
+
+## Anti-publicidad
+
+Detecta URLs e invitaciones de Discord con patrones regex configurables más una lista blanca.
+
+```yaml
+anti-ad:
+  enabled: true
+  patterns:
+    - "(?<![a-zA-Z0-9])([a-z0-9-]+\\.)+(com|net|org|gg|io)"
+    - "(discord\\.gg/|discordapp\\.com/invite/)"
+  whitelist:
+    - "tu-servidor.com"
+  action: "warn"
+```
+
+<Tip>
+  La lista por defecto de TLD omite `me` a propósito — `help.me` daría un falso positivo en frases normales.
+</Tip>
+
+## Anti-spam
+
+Un enfriamiento global por jugador más detección de flood.
+
+```yaml
+anti-spam:
+  enabled: true
+  global-cooldown-ms: 1500
+  flood:
+    max-messages: 5
+    window-seconds: 3
+    similarity-threshold: 0.8
+  action: "block"
+```
