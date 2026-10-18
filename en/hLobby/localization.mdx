@@ -1,0 +1,49 @@
+---
+title: "hLobby Localization"
+description: "Translate and customize hLobby messages."
+---
+
+hLobby messages use [MiniMessage](https://docs.advntr.dev/minimessage/format.html) formatting. Language files live in `plugins/hLobby/lang/` and are extracted from the jar on first use.
+
+## Included languages
+
+| Language | File |
+| --- | --- |
+| English | `en.yml` (default) |
+| Spanish | `es.yml` |
+
+## Change language
+
+Set the file name without extension in `config.yml`:
+
+```yaml
+general:
+  language: es
+```
+
+Then run `/hlobby reload`.
+
+## Add a new language
+
+1. Copy `en.yml` to a new file, for example `fr.yml`.
+2. Translate the messages.
+3. Set `general.language: fr` and reload.
+
+## MiniMessage quick reference
+
+| Tag | Result |
+| --- | --- |
+| `<red>text</red>` | Red text. |
+| `<#FF0000>text` | Custom hex color. |
+| `<bold>text</bold>` | Bold text. |
+| `<click:run_command:/lobby>Click</click>` | Clickable text. |
+| `<hover:show_text:'Hello'>Hover</hover>` | Hover tooltip. |
+| `<gradient:blue:aqua>text</gradient>` | Gradient text. |
+
+## Common placeholders
+
+| Placeholder | Replaced with |
+| --- | --- |
+| `{player}` | The player's username. |
+| `{server}` | The target server name. |
+| `{mode}` | The current teleport mode. |
