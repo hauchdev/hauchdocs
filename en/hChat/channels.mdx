@@ -1,0 +1,53 @@
+---
+title: "hChat Channels"
+description: "Configure chat channels for your server."
+---
+
+Channels give every conversation its own format, visibility range, permissions, and cooldown. The default config includes `global`, `local` (distance-based), `staff`, `vip`, `trade`, and `world` (per-world).
+
+## Channel options
+
+| Option | Description |
+| --- | --- |
+| `format` | The chat format for the channel. |
+| `range` | Distance-based local chat range. Use `-1` for global. |
+| `cooldown` | Per-channel send cooldown in seconds. |
+| `alias` | Shortcut prefix like `#l` or `#staff`. |
+| `speak-permission` | Permission required to speak in the channel. |
+| `see-permission` | Permission required to see messages. |
+| `per-world` | If true, messages never cross worlds. |
+| `default-by-permission` | Auto-join players with this permission on entry. |
+| `hint-on-switch` | Action-bar hint shown when switching channels. |
+| `hint-on-join` | Action-bar hint shown when joining. |
+| `format-mode` | Override the global format mode for this channel. |
+
+## Example channels
+
+```yaml
+channels:
+  global:
+    format: "&7{player}&8: &f{message}"
+    range: -1
+    default: true
+  local:
+    format: "&8[Local] &7{player} &8» &f{message}"
+    range: 80
+    action-bar-hint: "&eThere are people talking near you"
+    alias: "#l"
+  staff:
+    format: "&c[Staff] {player} &8» &f{message}"
+    speak-permission: hchat.channel.staff
+    see-permission: hchat.channel.staff.see
+    alias: "#staff"
+    format-mode: minimessage
+```
+
+## Using channels in-game
+
+- `/channel` lists channels (click to switch).
+- `/channel <name>` switches your active channel. The choice is remembered between sessions.
+- `#staff hello` sends a message to the staff channel from anywhere.
+
+## Default channel
+
+The default channel (`global`) uses `chat.default-format` or a permission-based format from `chat.formats` (vip/mvp/admin). Make sure one channel has `default: true`.

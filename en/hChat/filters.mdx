@@ -1,0 +1,80 @@
+---
+title: "hChat Filters"
+description: "Configure the hChat filter chain."
+---
+
+Every chat message runs through a filter chain in this order:
+
+```
+word-filter → anti-unicode → anti-caps → anti-ad → anti-spam
+```
+
+Each filter supports the same actions:
+
+| Action | Behavior |
+| --- | --- |
+| `block` | Drops the message and notifies the sender with `message-filtered`. |
+| `mask` | Replaces the offending part with `*`, then forwards the message. |
+| `warn` | Lets the message through and pings every player with `hchat.monitor.filter`. |
+| `lowercase` | Transforms the message to lowercase (anti-caps only). |
+
+## Word filter
+
+```yaml
+word-filter:
+  enabled: true
+  words:
+    - "blacklist1"
+    - "blacklist2"
+  action: "block"   # block | mask | warn
+```
+
+## Anti-caps
+
+Blocks, masks, or lowercases messages that are mostly uppercase.
+
+```yaml
+anti-caps:
+  enabled: true
+  max-uppercase-percent: 70
+  min-length: 4
+  action: "lowercase"
+```
+
+## Anti-unicode
+
+Blocks invisible characters used to bypass filters: zero-width spaces, direction overrides, BOM, tag characters (`U+E0000+`), and soft hyphens.
+
+## Anti-advertisement
+
+Matches URLs and Discord invites with configurable regex patterns plus a whitelist.
+
+```yaml
+anti-ad:
+  enabled: true
+  patterns:
+    - "(?<![a-zA-Z0-9])([a-z0-9-]+\\.)+(com|net|org|gg|io)"
+    - "(discord\\.gg/|discordapp\\.com/invite/)"
+  whitelist:
+    - "your-server.com"
+  action: "warn"
+```
+
+<Tip>
+  The default TLD list omits `me` on purpose — `help.me` would false-positive on normal prose.
+</Tip>
+
+## Anti-spam
+
+A global per-player cooldown plus flood detection.
+
+```yaml
+anti-spam:
+  enabled: true
+  global-cooldown-ms: 1500
+  flood:
+    max-messages: 5
+    window-seconds: 3
+    similarity-threshold: 0.8
+  action: "block"
+```
