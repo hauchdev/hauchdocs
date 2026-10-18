@@ -1,0 +1,60 @@
+---
+title: "Visión general de hChat"
+description: "Un sistema de chat moderno y completo para servidores Paper 1.20+."
+---
+
+# hChat
+
+**hChat** es un sistema de chat moderno y completo para servidores [Paper](https://papermc.io) 1.20+. Incluye canales de chat, mensajes privados, menciones, herramientas de moderación, filtros, AFK, correo, repetición de chat, integración con PlaceholderAPI y más.
+
+<CardGroup cols={2}>
+  <Card title="Instalar hChat" icon="download" href="/es/hChat/installation">
+    Descarga, instala y verifica hChat en tu servidor Paper.
+  </Card>
+  <Card title="Configuración" icon="gear" href="/es/hChat/configuration">
+    Aprende todas las opciones de config.yml con ejemplos.
+  </Card>
+  <Card title="Comandos y permisos" icon="terminal" href="/es/hChat/commands">
+    Referencia completa de comandos y permisos.
+  </Card>
+  <Card title="API para desarrolladores" icon="code" href="/es/hChat/api">
+    Integra hChat en tus propios plugins.
+  </Card>
+</CardGroup>
+
+## Características
+
+| Característica | Descripción |
+| --- | --- |
+| Mensajes privados | Formato personalizable con tooltips y clic para responder. |
+| @Menciones | Sonido configurable, color de resaltado y notificación personal. |
+| Modo espía | Monitoriza mensajes privados con un permiso dedicado. |
+| Sistema de ignore | Lista de bloqueo persistente por jugador. |
+| Multiidioma | Localización YAML con selección de idioma por jugador. |
+| PlaceholderAPI | `%hchat_spy_enabled%`, `%hchat_ignored%`, DND, última vez visto, etc. |
+| MiniMessage + hex | Etiquetas MiniMessage, hex `&#RRGGBB` y códigos `&` clásicos. |
+| Hover y clic | Tooltips y acciones clicables en cada línea de chat. |
+| Anuncios | `/bc` manual más programador de anuncios automáticos. |
+| Moderación | Slowmode, bloqueo de chat y chat de staff (`/sc`). |
+| Cadena de filtros | Filtro de palabras, anti-mayúsculas, anti-unicode, anti-publicidad y anti-spam. |
+| Registro de chat | Logs diarios rotativos con retención configurable. |
+| Canales de chat | Por mundo, por permiso, alias y enfriamientos. |
+| Correo | Mensajes offline con `/hchat mail read\|clear\|send`. |
+| AFK | Detección automática de inactividad más `/afk [mensaje]`. |
+| Menciones masivas | `@everyone` / `@here` con enfriamiento y sonido. |
+| Ping y visto | `/ping [jugador]` y `/seen <jugador>`. |
+| Repetición de chat | `/hchat replay [jugador]` en un buffer circular. |
+
+## Requisitos
+
+- Un servidor [Paper](https://papermc.io) 1.20+.
+- Java 21 o superior.
+- [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/) 2.11+.
+- [LuckPerms](https://luckperms.net) (recomendado pero ya no obligatorio).
+
+## Enlaces rápidos
+
+- [Repositorio de GitHub](https://github.com/hauchdev/hChat)
+- [Última versión](https://github.com/hauchdev/hChat/releases/latest)
+- [Página de Modrinth](https://modrinth.com/plugin/hchat)
+- [Reportar un problema](https://github.com/hauchdev/hChat/issues)

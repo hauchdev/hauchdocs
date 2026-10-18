@@ -1,0 +1,56 @@
+---
+title: "Instalar hChat"
+description: "Descarga e instala hChat en tu servidor Paper."
+---
+
+## Requisitos previos
+
+Antes de instalar hChat, asegúrate de tener:
+
+- Un servidor [Paper](https://papermc.io) 1.20+ en ejecución.
+- Java 21 o superior.
+- [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/) 2.11+ instalado.
+- [LuckPerms](https://luckperms.net) recomendado para permisos.
+
+## Descarga
+
+Descarga el JAR más reciente desde la [página de releases](https://github.com/hauchdev/hChat/releases/latest) o desde [Modrinth](https://modrinth.com/plugin/hchat).
+
+```bash
+wget https://github.com/hauchdev/hChat/releases/latest/download/hChat.jar
+```
+
+## Instalación
+
+<Steps>
+  <Step title="Coloca el jar">
+    Mueve el JAR descargado a la carpeta `plugins/` de tu servidor.
+
+    ```bash
+    mv hChat.jar /ruta/al/servidor/plugins/
+    ```
+  </Step>
+  <Step title="Instala dependencias">
+    Asegúrate de que PlaceholderAPI esté instalado. LuckPerms es recomendado para gestionar permisos.
+  </Step>
+  <Step title="Inicia el servidor">
+    Inicia o reinicia tu servidor. hChat creará `plugins/hChat/config.yml` y `plugins/hChat/lang/lang_en.yml` en el primer inicio.
+  </Step>
+  <Step title="Configura">
+    Edita `config.yml` para que se ajuste a tu servidor, luego ejecuta `/hchat reload`.
+  </Step>
+</Steps>
+
+## Verifica la instalación
+
+Ejecuta `/hchat about` en el juego o `hchat about` desde la consola. Deberías ver la versión del plugin, autores y resumen de funciones.
+
+## Actualizar
+
+Para actualizar hChat:
+
+1. Detén tu servidor.
+2. Reemplaza el JAR antiguo por el nuevo en `plugins/`.
+3. Vuelve a iniciar el servidor.
+
+Tus archivos de configuración e idioma se conservan. Las nuevas opciones se añaden automáticamente si faltan.
