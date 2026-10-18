@@ -1,0 +1,47 @@
+---
+title: "hLobby Permissions"
+description: "Permission reference for hLobby."
+---
+
+hLobby uses a simple permission model. Wildcards are supported on permission plugins like [LuckPerms](https://luckperms.net/).
+
+## Permission list
+
+| Permission | Default | Description |
+| --- | --- | --- |
+| `lobby.use` | true | Use `/lobby`. |
+| `lobby.admin.create` | op | Add servers to the lobby list. |
+| `lobby.admin.remove` | op | Remove servers from the lobby list. |
+| `lobby.admin.list` | op | List configured lobbies. |
+| `lobby.admin.transport` | op | Move players between lobbies. |
+| `lobby.admin.mode` | op | Change the teleport mode. |
+| `lobby.admin.tp` | op | Teleport another player to a lobby. |
+| `lobby.admin.server` | op | Join a specific lobby. |
+| `lobby.admin.reload` | op | Reload configuration and messages. |
+| `lobby.admin.main` | op | Use `/hlobby` admin commands. |
+| `lobby.admin.*` | op | All administrative permissions. |
+| `lobby.bypass.cooldown` | op | Ignore the `/lobby` cooldown. |
+| `lobby.bypass.countdown` | op | Skip the teleport countdown. |
+| `lobby.bypass.blocked` | op | Use `/lobby` on blocked servers. |
+| `lobby.update.notify` | op | Be notified when an update is available. |
+| `lobby.*` | op | All permissions. |
+
+## LuckPerms examples
+
+Give all lobby permissions to a group:
+
+```bash
+/lp group admin permission set lobby.* true
+```
+
+Allow only `/lobby` for default players:
+
+```bash
+/lp group default permission set lobby.use true
+```
+
+Let staff bypass cooldowns:
+
+```bash
+/lp group mod permission set lobby.bypass.cooldown true
+```

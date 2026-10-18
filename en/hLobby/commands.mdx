@@ -1,0 +1,59 @@
+---
+title: "hLobby Commands"
+description: "Complete command reference for hLobby."
+---
+
+All command names and aliases are configurable in `config.yml`. The table below shows the defaults.
+
+## Player commands
+
+| Command | Aliases | Description | Permission |
+| --- | --- | --- | --- |
+| `/lobby` | `hub`, `leave` | Send yourself to the best lobby. | `lobby.use` |
+
+## Admin commands
+
+| Command | Aliases | Description | Permission |
+| --- | --- | --- | --- |
+| `/lobbycreate <server>` | `create` | Register a backend server as a lobby. | `lobby.admin.create` |
+| `/lobbyremove <server>` | `remove` | Remove a server from the lobby list. | `lobby.admin.remove` |
+| `/lobbylist` | `list` | List configured lobbies and player counts. | `lobby.admin.list` |
+| `/lobbytransport <from> <to>` | `transport` | Move every player from one lobby to another. | `lobby.admin.transport` |
+| `/lobbymode <mode>` | `mode` | Change the teleport strategy. | `lobby.admin.mode` |
+| `/lobbytp <player>` | `tp` | Teleport another player to a lobby. | `lobby.admin.tp` |
+| `/lobbyserver <server>` | `server`, `joins` | Join a specific lobby. | `lobby.admin.server` |
+| `/lobbyreload` | `hlobbyreload` | Reload config, messages, and lobbies. | `lobby.admin.reload` |
+| `/hlobby reload` | — | Reload config, messages, and lobbies. | `lobby.admin.main` |
+| `/hlobby update` | — | Check GitHub for updates manually. | `lobby.admin.main` |
+| `/hlobby about` | — | Show version, metrics status, and website. | `lobby.admin.main` |
+| `/hlobby help` | — | Show the admin help menu. | `lobby.admin.main` |
+
+## Examples
+
+Send yourself to the best lobby:
+
+```bash
+/lobby
+```
+
+Add a new lobby at runtime:
+
+```bash
+/lobbycreate lobby-3
+```
+
+Switch teleport mode:
+
+```bash
+/lobbymode ROUND_ROBIN
+```
+
+Teleport another player:
+
+```bash
+/lobbytp Notch
+```
+
+## Tab completion
+
+Most admin commands support tab completion for server names, online players, and valid teleport modes.
