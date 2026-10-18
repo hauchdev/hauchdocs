@@ -1,0 +1,49 @@
+---
+title: "Solución de problemas de hLobby"
+description: "Problemas comunes y soluciones para hLobby."
+---
+
+## Los jugadores se desconectan en lugar de redirigirse a un lobby
+
+Asegúrate de que `lobby.fallback-server` apunta a un servidor válido y registrado, y de que `kick-redirect` está activado:
+
+```yaml
+lobby:
+  kick-redirect: true
+  fallback-server: fallback
+```
+
+## `/lobby` no hace nada
+
+- Verifica que el jugador tenga `lobby.use`.
+- Comprueba que `lobby.servers` contenga nombres válidos de `velocity.toml`.
+- Asegúrate de que el servidor no esté en `lobby.blocked-servers`.
+- Activa `general.debug` y revisa la consola en busca de errores.
+
+## La cuenta atrás de teletransporte nunca termina
+
+- Si `cancel-on-move` es true, cualquier movimiento la cancela.
+- Si `cancel-on-chat` es true, chatear la cancela.
+- Los jugadores con `lobby.bypass.countdown` la omiten por completo.
+
+## No se encuentra el archivo de idioma
+
+El valor de `general.language` debe coincidir con un archivo en `plugins/hLobby/lang/` sin la extensión `.yml`. Por ejemplo, usa `es` para `es.yml`.
+
+## El comprobador de actualizaciones falla
+
+El proxy debe poder llegar a `api.github.com`. Si no puede, desactiva las comprobaciones:
+
+```yaml
+general:
+  check-updates: false
+```
+
+## ¿Sigues atascado?
+
+Abre un issue en [GitHub](https://github.com/hauchdev/hLobby/issues) con:
+
+- Tu versión de Velocity.
+- Tu versión de hLobby.
+- Tu `config.yml` (elimina datos sensibles).
+- Logs relevantes de la consola.
