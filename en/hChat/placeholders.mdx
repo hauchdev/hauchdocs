@@ -1,0 +1,44 @@
+---
+title: "hChat Placeholders"
+description: "PlaceholderAPI placeholders registered by hChat."
+---
+
+When [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/) is installed, hChat registers the placeholders listed below.
+
+## Available placeholders
+
+| Placeholder | Description |
+| --- | --- |
+| `%hchat_spy_enabled%` | `Spy Mode: Enabled` / `Spy Mode: Disabled` |
+| `%hchat_ignored%` | `You are ignoring players` / `You are not ignoring anyone` |
+| `%hchat_ignored_<name>%` | Per-player ignore check (`true` / `false`, case-insensitive) |
+| `%hchat_ignored_count%` | Number of players this player is currently ignoring |
+| `%hchat_dnd_enabled%` | `DND: Enabled` / `DND: Disabled` |
+| `%hchat_last_sender%` | Name of the player who most recently sent you a private message |
+| `%hchat_last_message_part%` | First 30 characters of the last private message you received |
+| `%hchat_last_seen%` | `Received N minutes ago` / `No recent messages` |
+
+Any placeholder that resolves against an offline player returns the safe (no-player) phrasing defined in `lang_en.yml`.
+
+## Internal chat placeholders
+
+Inside chat formats, hChat also resolves:
+
+| Placeholder | Replaced with |
+| --- | --- |
+| `{sender}` | Sender's display name. |
+| `{receiver}` | Recipient's display name. |
+| `{target}` | Target name (spy view). |
+| `{message}` | The actual message body. |
+| `{player}` | Player name (mentions, offline messages, etc.). |
+| `%player_name%` | Resolved by PlaceholderAPI. |
+
+## Dynamic tokens
+
+| Token | Description |
+| --- | --- |
+| `[ping]` | Colored latency indicator. |
+| `[item]` | Main-hand item tooltip. |
+| `[coords]` | Player position. |
+| `[world]` | Current world name. |
+| `[afk]` | AFK prefix. |

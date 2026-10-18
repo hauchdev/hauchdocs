@@ -1,0 +1,47 @@
+---
+title: "hChat Localization"
+description: "Translate and customize hChat messages."
+---
+
+Language files live in `plugins/hChat/lang/`. The plugin ships `lang_en.yml` and supports any number of additional files.
+
+## Change the server language
+
+Set `general.lang` in `config.yml`:
+
+```yaml
+general:
+  lang: es
+```
+
+Then run `/hchat reload`.
+
+## Per-player language
+
+Each player can override their own language with:
+
+```bash
+/hchat lang <lang>
+```
+
+Player choices are stored in `plugins/hChat/storage/player-lang.yml`. At runtime, messages are looked up in the per-player file first and fall back to the server-wide `lang` setting when the key is missing.
+
+## Add a new language
+
+1. Copy `lang_en.yml` to `lang_fr.yml`.
+2. Translate the values.
+3. Run `/hchat reload`.
+4. Players can switch with `/hchat lang fr`.
+
+## Example translation
+
+```yaml
+no-permission: "&cYou do not have permission!"
+player-only: "&cOnly players can use this command!"
+player-offline: "&cPlayer is offline!"
+mentioned: "&#ffffffYou were mentioned in chat by &#84FFB8{player}!"
+```
+
+## Formatting modes
+
+Messages support legacy `&` codes, `&#RRGGBB` hex, and MiniMessage tags depending on the configured `format-mode`.
