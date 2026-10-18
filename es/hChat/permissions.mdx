@@ -1,0 +1,58 @@
+---
+title: "Permisos de hChat"
+description: "Referencia de permisos de hChat."
+---
+
+## Lista de permisos
+
+| Permiso | Por defecto | Descripción |
+| --- | --- | --- |
+| `hchat.*` | op | Acceso a todos los comandos y funciones de hChat. |
+| `hchat.message` | true | Permite `/msg`, `/tell`, `/w`, `/m`, `/whisper`. |
+| `hchat.reply` | true | Permite `/reply`, `/r`. |
+| `hchat.broadcast` | op | Permite `/broadcast`, `/bc`. |
+| `hchat.broadcast.color` | op | Permite códigos de color dentro de los anuncios. |
+| `hchat.ignore` | true | Permite `/ignore <jugador>`. |
+| `hchat.spy` | op | Permite activar `/spy`. |
+| `hchat.spy.all` | op | Recibe todos los mensajes privados sin excepción. |
+| `hchat.clear` | op | Permite `/clear`. |
+| `hchat.reload` | op | Permite `/hchat reload`. |
+| `hchat.help` | true | Permite `/hchat help`. |
+| `hchat.lang` | true | Permite `/hchat lang <idioma>`. |
+| `hchat.channel` | true | Permite `/channel` y cambiar de canal. |
+| `hchat.slowmode` | op | Permite `/slowmode`. |
+| `hchat.slowmode.bypass` | op | Evita el slowmode global. |
+| `hchat.chatlock` | op | Permite `/chatlock`. |
+| `hchat.chatlock.bypass` | op | Sigue hablando mientras el chat está bloqueado. |
+| `hchat.sc` | op | Permite `/sc` staff chat. |
+| `hchat.dnd` | true | Permite `/dnd`. |
+| `hchat.bypass.dnd` | op | Envía MPs a jugadores con DND activado. |
+| `hchat.ping` | true | Permite `/ping`. |
+| `hchat.ping.others` | op | Permite `/ping <jugador>`. |
+| `hchat.seen` | true | Permite `/seen`. |
+| `hchat.afk` | true | Permite `/afk`. |
+| `hchat.mention.everyone` | op | Permite usar `@everyone`. |
+| `hchat.mention.here` | op | Permite usar `@here`. |
+| `hchat.monitor.filter` | op | Recibe avisos cuando el filtro de palabras actúa sobre un jugador. |
+| `hchat.bypass-log` | op | Envía mensajes privados sin escribirlos en el logger de chat. |
+
+## Ejemplos con LuckPerms
+
+Da todos los permisos de hChat a un grupo:
+
+```bash
+/lp group admin permission set hchat.* true
+```
+
+Permite a los jugadores por defecto usar MPs:
+
+```bash
+/lp group default permission set hchat.message true
+/lp group default permission set hchat.reply true
+```
+
+Da a los moderadores alertas del filtro:
+
+```bash
+/lp group mod permission set hchat.monitor.filter true
+```

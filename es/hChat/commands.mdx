@@ -1,0 +1,45 @@
+---
+title: "Comandos de hChat"
+description: "Referencia completa de comandos de hChat."
+---
+
+## Comandos de jugador
+
+| Comando | Alias | Descripción | Permiso |
+| --- | --- | --- | --- |
+| `/message <jugador> <mensaje>` | `/msg`, `/tell`, `/w`, `/m`, `/whisper` | Envía un mensaje privado. | `hchat.message` |
+| `/reply <mensaje>` | `/r` | Responde al mensaje privado más reciente. | `hchat.reply` |
+| `/ignore <jugador>` | — | Activa/desactiva ignorar a un jugador. | `hchat.ignore` |
+| `/ignore list` | — | Lista jugadores ignorados (clic para dejar de ignorar). | `hchat.ignore` |
+| `/channel [nombre]` | `/ch` | Lista o cambia tu canal de chat activo. | `hchat.channel` |
+| `/dnd [on\|off]` | — | Activa/desactiva no molestar (bloquea MPs entrantes). | `hchat.dnd` |
+| `/ping [jugador]` | — | Muestra tu latencia o la de otro jugador. | `hchat.ping` |
+| `/seen <jugador>` | — | Cuándo te envió un mensaje por última vez. | `hchat.seen` |
+| `/afk [mensaje]` | — | Activa/desactiva AFK (también se detecta por inactividad). | `hchat.afk` |
+| `/hchat help` | — | Muestra el menú de ayuda en el juego. | `hchat.help` |
+| `/hchat lang <idioma>` | — | Cambia tu idioma personal. | `hchat.lang` |
+| `/hchat mail <read\|clear\|send>` | — | Lee, borra o envía mensajes offline. | `hchat.help` |
+| `/hchat replay [jugador]` | — | Reprime chat reciente, opcionalmente filtrado por jugador. | `hchat.help` |
+
+## Comandos de administrador
+
+| Comando | Alias | Descripción | Permiso |
+| --- | --- | --- | --- |
+| `/broadcast <mensaje>` | `/bc` | Anuncia un mensaje a todo el servidor. | `hchat.broadcast` |
+| `/spy` | — | Activa/desactiva modo espía (ver todos los MPs). | `hchat.spy` |
+| `/clear` | — | Limpia el chat de todos los jugadores. | `hchat.clear` |
+| `/slowmode <segundos\|off\|status>` | — | Slowmode global de chat. | `hchat.slowmode` |
+| `/chatlock <on\|off\|status>` | — | Bloquea o desbloquea todo el chat. | `hchat.chatlock` |
+| `/sc <mensaje>` | — | Canal de chat solo para staff. | `hchat.sc` |
+| `/hchat reload` | — | Recarga config y archivos de idioma. | `hchat.reload` |
+| `/hchat about` | — | Versión, autores y resumen de funciones. | `hchat.help` |
+| `/hchat replay clear-buffer` | — | Vacía el buffer de repetición. | `hchat.clear` |
+
+## Autocompletado con tabulador
+
+Cada comando soporta autocompletado donde tiene sentido:
+
+- `/hchat` completa sus subcomandos filtrados por permiso.
+- `/hchat lang` completa los códigos de idioma de `lang/`.
+- `/message` e `/ignore` completan nombres de jugadores en línea (`/message` también sugiere jugadores offline).
+- `/channel` completa los ids de canales configurados.
