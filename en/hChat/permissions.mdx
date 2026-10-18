@@ -1,0 +1,58 @@
+---
+title: "hChat Permissions"
+description: "Permission reference for hChat."
+---
+
+## Permission list
+
+| Permission | Default | Description |
+| --- | --- | --- |
+| `hchat.*` | op | Access to every hChat command and feature. |
+| `hchat.message` | true | Allows `/msg`, `/tell`, `/w`, `/m`, `/whisper`. |
+| `hchat.reply` | true | Allows `/reply`, `/r`. |
+| `hchat.broadcast` | op | Allows `/broadcast`, `/bc`. |
+| `hchat.broadcast.color` | op | Allows color codes inside broadcast messages. |
+| `hchat.ignore` | true | Allows `/ignore <player>`. |
+| `hchat.spy` | op | Allows toggling `/spy`. |
+| `hchat.spy.all` | op | Receive every private message without exception. |
+| `hchat.clear` | op | Allows `/clear`. |
+| `hchat.reload` | op | Allows `/hchat reload`. |
+| `hchat.help` | true | Allows `/hchat help`. |
+| `hchat.lang` | true | Allows `/hchat lang <lang>`. |
+| `hchat.channel` | true | Allows `/channel` and channel switching. |
+| `hchat.slowmode` | op | Allows `/slowmode`. |
+| `hchat.slowmode.bypass` | op | Bypass the global chat slowmode. |
+| `hchat.chatlock` | op | Allows `/chatlock`. |
+| `hchat.chatlock.bypass` | op | Keep talking while the chat is locked. |
+| `hchat.sc` | op | Allows `/sc` staff chat. |
+| `hchat.dnd` | true | Allows `/dnd`. |
+| `hchat.bypass.dnd` | op | Send DMs to players with DND enabled. |
+| `hchat.ping` | true | Allows `/ping`. |
+| `hchat.ping.others` | op | Allows `/ping <player>`. |
+| `hchat.seen` | true | Allows `/seen`. |
+| `hchat.afk` | true | Allows `/afk`. |
+| `hchat.mention.everyone` | op | Allows using `@everyone`. |
+| `hchat.mention.here` | op | Allows using `@here`. |
+| `hchat.monitor.filter` | op | Receive warnings when the word filter trips on a player. |
+| `hchat.bypass-log` | op | Send private messages without writing them to the chat logger. |
+
+## LuckPerms examples
+
+Give all hChat permissions to a group:
+
+```bash
+/lp group admin permission set hchat.* true
+```
+
+Allow default players to use DMs:
+
+```bash
+/lp group default permission set hchat.message true
+/lp group default permission set hchat.reply true
+```
+
+Give moderators filter monitor alerts:
+
+```bash
+/lp group mod permission set hchat.monitor.filter true
+```

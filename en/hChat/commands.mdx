@@ -1,0 +1,45 @@
+---
+title: "hChat Commands"
+description: "Complete command reference for hChat."
+---
+
+## Player commands
+
+| Command | Aliases | Description | Permission |
+| --- | --- | --- | --- |
+| `/message <player> <message>` | `/msg`, `/tell`, `/w`, `/m`, `/whisper` | Send a private message. | `hchat.message` |
+| `/reply <message>` | `/r` | Reply to the most recent private message. | `hchat.reply` |
+| `/ignore <player>` | — | Toggle ignoring a specific player. | `hchat.ignore` |
+| `/ignore list` | — | List ignored players (click to unignore). | `hchat.ignore` |
+| `/channel [name]` | `/ch` | List or switch your active chat channel. | `hchat.channel` |
+| `/dnd [on\|off]` | — | Toggle do-not-disturb (blocks incoming DMs). | `hchat.dnd` |
+| `/ping [player]` | — | Show your or someone else's latency. | `hchat.ping` |
+| `/seen <player>` | — | When the player last sent you a message. | `hchat.seen` |
+| `/afk [message]` | — | Toggle AFK (auto-detected after inactivity too). | `hchat.afk` |
+| `/hchat help` | — | Show the in-game help menu. | `hchat.help` |
+| `/hchat lang <lang>` | — | Switch your own player language. | `hchat.lang` |
+| `/hchat mail <read\|clear\|send>` | — | Read, clear, or send offline messages. | `hchat.help` |
+| `/hchat replay [player]` | — | Reprint recent chat, optionally filtered by player. | `hchat.help` |
+
+## Admin commands
+
+| Command | Aliases | Description | Permission |
+| --- | --- | --- | --- |
+| `/broadcast <message>` | `/bc` | Broadcast a message to the whole server. | `hchat.broadcast` |
+| `/spy` | — | Toggle spy mode (see all private messages). | `hchat.spy` |
+| `/clear` | — | Clear the chat of every player. | `hchat.clear` |
+| `/slowmode <seconds\|off\|status>` | — | Global chat slowmode. | `hchat.slowmode` |
+| `/chatlock <on\|off\|status>` | — | Lock or unlock the whole chat. | `hchat.chatlock` |
+| `/sc <message>` | — | Staff-only chat channel. | `hchat.sc` |
+| `/hchat reload` | — | Reload config and language files. | `hchat.reload` |
+| `/hchat about` | — | Version, authors, and feature overview. | `hchat.help` |
+| `/hchat replay clear-buffer` | — | Empty the replay buffer. | `hchat.clear` |
+
+## Tab completion
+
+Every command supports tab completion where it makes sense:
+
+- `/hchat` completes its subcommands filtered by permission.
+- `/hchat lang` completes the language codes from `lang/`.
+- `/message` and `/ignore` complete online player names (`/message` also suggests offline players).
+- `/channel` completes configured channel ids.
