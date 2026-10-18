@@ -1,0 +1,76 @@
+---
+title: "Contribuir"
+description: "Cómo contribuir a los proyectos de Team Hauchdev."
+---
+
+Gracias por tu interés en contribuir a **Team Hauchdev**. Esta guía cubre hLobby, hChat y este sitio de documentación.
+
+## Formas de contribuir
+
+- **Reportar errores** en la página de Issues del repositorio correspondiente.
+- **Sugerir funciones** a través de GitHub Discussions (hChat) o Issues.
+- **Enviar pull requests** con correcciones o nuevas funciones.
+- **Mejorar traducciones** de los archivos de idioma.
+- **Mejorar la documentación** editando páginas en este repositorio.
+
+## Antes de empezar
+
+1. Haz un fork del repositorio al que quieres contribuir.
+2. Crea una rama de funcionalidad: `git checkout -b feature/mi-funcion`.
+3. Realiza tus cambios.
+4. Ejecuta las pruebas o compila el proyecto localmente.
+5. Haz commit con mensajes claros en inglés o español.
+6. Abre un pull request con una descripción de qué cambió y por qué.
+
+## Contribuciones a hLobby
+
+Al añadir un comando, permiso o mensaje, actualiza:
+
+- `src/main/resources/config.yml`
+- `src/main/resources/lang/en.yml` y `es.yml`
+- `README.md` y `docs/CONFIGURATION.md`
+- Pruebas unitarias cuando aplique
+
+Compila localmente con:
+
+```bash
+./gradlew build
+```
+
+## Contribuciones a hChat
+
+Por favor sigue [Conventional Commits](https://www.conventionalcommits.org/) (en inglés o español). Cuando añadas un comando, permiso o función, actualiza:
+
+- `lang_en.yml` y archivos de idioma
+- `plugin.yml`
+- `README.md`
+- Este sitio de documentación
+
+Asegúrate de que el proyecto siga verde:
+
+```bash
+mvn clean verify
+```
+
+Consulta [ROADMAP.md](https://github.com/hauchdev/hChat/blob/dev/ROADMAP.md) para la visión general.
+
+## Contribuciones a la documentación
+
+Este sitio está construido con [Mintlify](https://mintlify.com). Las páginas son archivos MDX con frontmatter YAML.
+
+Para previsualizar localmente:
+
+```bash
+npm i -g mint
+mint dev
+```
+
+Al añadir una página nueva, regístrala en `docs.json` bajo el idioma y grupo correctos.
+
+## Código de conducta
+
+Sé respetuoso, constructivo e inclusivo. El acoso o comportamiento tóxico no son tolerados.
+
+## ¿Preguntas?
+
+Abre una discusión en [GitHub](https://github.com/hauchdev/hChat/discussions) o contacta a través del issue tracker del proyecto.
